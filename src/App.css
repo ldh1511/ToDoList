@@ -1,38 +1,554 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,body{
+  font-family: 'Segoe UI', sans-serif;
+  background-color:#f4f7fe;
+  color: #1c1c36;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header{
+  padding: 0 15px;
+  background-color: #ffffff;
+  box-shadow: 0 15px 15px 5px #eceffa;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo img{
+  display: block;
+  width: 175px;
+}
+.nav-menu{
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.nav-menu i{
+  font-size: 150%;
+  cursor: pointer;
+  transition: .2s;
+}
+.nav-menu:hover i{
+  color: #28cdf7;
+}
+.logo h1{
+  font-weight: 300;
+  font-family: 'Roboto';
+}
+.logo h1 span{
+  color: #ffffff;
+  background-color:#3454f5;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-weight: 300;
+}
+.content{
+  display: flex;
+  position: relative;
+}
+.content-left{
+  padding: 30px 15px;
+  flex: 2;
+}
+.right-menu{
+  flex: 8;
+  padding-top: 30px;
+}
+.content-left ul{
+  margin-bottom: 20px;
+}
+.content-left h3{
+  text-transform: uppercase;
+  color: #bfc5d8;
+  font-weight: 500;
+  letter-spacing: 2px;
+  padding: 15px 10px;
+  border-top: 1px solid #bfc5d8;
+  cursor: pointer;
+}
+.content-left ul{
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+.content-left ul .li{
+  display: flex;
+  list-style: none;
+  color: #bfc5d8;
+  font-weight: 500;
+  cursor: pointer;
+  transition: .2s;
+  text-decoration: none;
+  align-items: baseline;
+  padding: 10px;
+  border-radius: 0px;
+}
+.content-left ul .li:hover{
+  color: #1c1c36;
+  background-color: #3454f5;
+  color: white;
+  border-radius: 10px;
+}
+.menu-icon{
+  width: 15px;
+  height: 15px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  margin-right: 10px;
+}
+.all{
+  display: flex
+}
+.today-container{
+  flex: 1;
+  padding: 0 30px;
+}
+.today-title{
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  justify-content: space-between;
+}
+.today-title h4{
+  padding-right: 10px;
+  font-size: 35px;
+}
+.today-title p{
+  color: #bfc5d8;
+  font-size: 25px;
+}
+.title-left{
+  display: flex;
+  align-items: baseline;
+}
+.btn-add{
+  padding: 4px 30px;
+  border-radius: 19px;
+  background-color: #3454f5;
+  color: white;
+  cursor: pointer;
+  box-shadow: 10px 10px 20px #e2e2e2;
+  transition: .1s;
+}
+.btn-add:hover,
+.btn-add:active{
+  border: 2px solid #3454f5;
+  background-color: #f4f7fe;
+  color: #1c1c36;
+  transform: scale(1.15);
+}
+.today-element{
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 120px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: white;
+  color: #1c1c36;
+  box-shadow: 10px 10px 20px #e2e2e2;
+  overflow: hidden;
+  cursor: pointer;
+  transition: .2s;
+}
+.today-element:hover,
+.done-element:hover{
+  animation: ani1 1s forwards;
+}
+.today-element:hover .element-top .icon,
+.done-element:hover .element-top .icon{
+  color: white;
+  border-color: white;
+}
+.today-element:hover .element-bottom .element-time,
+.done-element:hover .element-bottom .element-time{
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.today-box{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.today-detail{
+  display: flex;
+  flex-wrap: wrap;
+}
+.today-detail .today-element{
+  margin-right: 20px;
+}
+@keyframes ani1{
+  from{
+      background: #3454f5;
+  }
+  to{
+      background: linear-gradient(90deg, rgba(52,84,245,1) 1%, rgba(143,185,232,1) 100%);
+      color: white;
+  }
+}
+.icon{
+  border: 2px solid #bfc5d8;
+  padding: 5px;
+  border-radius: 50%;
+  color: #bfc5d8;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto',sans-serif;
+}
+.element-top{
+  display: flex;
+  justify-content: space-between;
+}
+.btn-done{
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.btn-done:hover i,
+.btn-done:active i{
+  color: white;
+}
+.btn-done:hover,
+.btn-done:active{
+  background: none;
+}
+.icon-right{
+  display: flex;
+  height: 30px;
+  background: #efefef;
+  border-radius: 10px;
+  transition: .2s;
+}
+.icon-right button:first-child{
+  margin-right: 10px;
+}
+.element-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.element-content{
+  font-size: 125%;
+}
+.ele-right{
+  display: flex;
+  background: #efefef;
+  border-radius: 10px;
+  transition: .2s;
+  cursor: pointer;
+}
+.ele-right:hover button{
+  color: white;
+  background: none;
+  cursor: pointer;
+}
+.ele-right:hover,
+.icon-right:hover{
+  background: none;
+}
+.btn-edit{
+  border-radius: 10px;
+  border: none;
+  padding: 5px 8px;
+  font-size: 15px;
+  outline: none;
+  transition: .2s;
+  color: #bfc5d8;
+}
+.btn-edit:hover,
+.btn-done:hover{
+  transform: scale(1.4);
+}
+.btn-edit:first-child{
+  margin-right: 10px;
+}
+.element-top i{
+  color:#bfc5d8;
+}
+.element-time{
+  font-size: 17px;
+  color:#bfc5d8;
+}
+.container-right{
+  flex: 1;
+  padding:0 30px;
+}
+.container-element{
+  border-radius: 10px;
+  padding: 15px;
+  background: white;
+  box-shadow: 10px 10px 20px #e2e2e2;
+  margin-bottom: 20px;
+  
+}
+.container-element ul li{
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  border-bottom: 1px solid #bfc5d8;
+  line-height: 25px;
+  padding: 5px 0;
+  color:#c3c2d2;
+  cursor: pointer;
+  transition: all .2s;
+}
+.container-element ul li:hover h5,
+.container-element ul li:active h5{
+  color: #1c1c36;
+}
+.container-element ul li i{
+  font-size: 15px;
+  color: #28cdf7;
+  font-weight: 700;
+  transition: all .2s;
+}
+.container-element ul li:hover i,
+.container-element ul li:active i{
+  font-weight: 400;
+  font-size: 20px;
+}
+.container-element ul li span{
+  padding:0 10px;
+  color: #bfc5d8;
+}
+.container-element ul li:last-child{
+  border-bottom: none;
+}
+.container-element ul li h5{
+  font-weight: 500;
+  font-size: 15px;
+}
+.add-form-box {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px #e2e2e2;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 9999;
+  width: 55%;
+}
+form h1{
+  text-align: center;
+}
+.form-detail input{
+  padding: 10px 5px;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #e2e2e2;
+}
+.form-detail{
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+.form-detail label{
+  flex: 2;
+}
+.form-detail input{
+  flex: 8;
+}
+.form-detail select{
+  flex: 8 1;
+  padding: 8px;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+  background: #e2e2e2;
+  cursor: pointer;
+  font-size: 16px;
+}
+.add-form{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.1);
+}
+.btn-add-form{
+  background-color: #3454f5;
+  width: 25%;
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: .2s;
+}
+.btn-add-form:hover{
+  animation: ani1 .5s forwards;
+}
+.checkbtn{
+  width: 17px;
+  height: 17px;
+}
+.form-delete{
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px #e2e2e2;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 9999;
+  width: 35%;
+  color: #1c1c36!important;
+}
+.form-delete label{
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 300;
+}
+.form-delete:hover{
+  color: #1c1c36!important;
+}
+.form-delete:hover button{
+  background-color: #efefef!important;
+}
+.btn-delete{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.btn-delete button{
+  width: calc(50% - 8px);
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: .2s;
+  cursor: pointer;
+  background-color: #efefef!important;
+}
+.btn-delete button i{
+  transition: .2s;
+  color: #1c1c36;
+}
+.btn-delete button:hover i{
+  color: white;
+  transform: scale(1.5);
+}
+.btn-delete button:first-child:hover{
+  background-color:#86f769 !important;
+}
+.btn-delete button:last-child:hover{
+  background-color:#ff4e4e !important;
+}
+.edit-form{
+  color: #1c1c36!important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.done-box{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.done-element{
+  padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 120px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: white;
+    color: #1c1c36;
+    box-shadow: 10px 10px 20px #e2e2e2;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .2s;
+    width: calc(50% - 10px);
+}
+.content-left.menu-active{
+  display: block;
+  position: absolute;
+  right: 0;
+  background-color: #f4f7fe;
+  height: 100%;
+  width: 35%;
+  top: 0;
+}
+
+/* REPONSIVE */
+@media only screen and (max-width: 1200px){
+  .today-title h4 {
+    font-size: 25px;
   }
-  to {
-    transform: rotate(360deg);
+  .element-content {
+    font-size: 110%;
+  }
+}
+@media only screen and (max-width: 991px){
+  .content-left{
+    display: none;
+  }
+  .add-form-box{
+    width: 85%;
+  }
+  .nav-menu{
+    display: flex;
+  }
+  .form-delete{
+    width: 50%;
+  }
+  .element-time{
+    font-size: 15px;
+  }
+  .today-title p {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 769px){
+  .all {
+    flex-direction: column;
+  }
+  .form-delete{
+    width: 70%;
+  }
+  .add-form-box {
+    width: 90%;
+  }
+  .form-detail label {
+    flex: 4 1;
+  }
+}
+@media only screen and (max-width: 497px){
+  .content-left.menu-active {
+    width: 60%;
+  }
+  .today-title p {
+    font-size: 17px;
+  }
+  .done-element{
+    width: 100%;
   }
 }
